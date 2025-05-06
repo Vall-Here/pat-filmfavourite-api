@@ -1,0 +1,30 @@
+# Environment variables
+.env
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+logs/
+
+# Cache
+.cache/
+
+# IDE files
+.vscode/
+.idea/
+
+# macOS system files
+.DS_Store
+
+# Database files (jika ada)
+*.sql
+*.db
+
+# Testing coverage
+coverage/
+
+# Build files (jika ada)
+dist/
+build/
