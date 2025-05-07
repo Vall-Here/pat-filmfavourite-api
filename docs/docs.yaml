@@ -10,10 +10,9 @@ info:
 
 
 servers:
-  - url: http://localhost:5000/api
+  - url: https://pat-filmfavourite-api-production.up.railway.app/api
     description: Development Server
-  - url: https://api-film-favorit.herokuapp.com/api
-    description: Production Server
+
 
 tags:
   - name: Auth
@@ -240,6 +239,38 @@ paths:
           #     example:
           #       success: false
           #       error: "Hanya admin yang bisa mengedit film"
+        404:
+          $ref: '#/components/responses/NotFoundError'
+    delete:
+      tags: [Films]
+      summary: Hapus film (Admin only)
+      operationId: deleteFilm
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/FilmIdParam'
+      responses:
+        200:
+          description: Film berhasil dihapus
+          # content:
+          #   application/json:
+          #     schema:
+          #       type: object
+          #       properties:
+          #         success:
+          #           type: boolean
+          #           example: true
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        403:
+          description: Forbidden (bukan admin)
+          # content:
+          #   application/json:
+          #     schema:
+          #       $ref: '#/components/schemas/ErrorResponse'
+          #     example:
+          #       success: false
+          #       error: "Hanya admin yang bisa menghapus film"
         404:
           $ref: '#/components/responses/NotFoundError'
 
