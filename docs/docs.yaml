@@ -10,7 +10,7 @@ info:
 
 
 servers:
-  - url: http://localhost:5000/api
+  - url: https://pat-filmfavourite-api-production.up.railway.app/api
     description: Development Server
   - url: https://api-film-favorit.herokuapp.com/api
     description: Production Server
